@@ -1,29 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+<app-navbar></app-navbar>
 
-import { CommonModule } from '@angular/common';
+<div class="container mt-4">
 
-import { PaiementService } from '../../services/paiement.service';
+  <div class="card shadow">
 
-import { NavbarComponent } from '../navbar/navbar.component';
+    <div class="card-header bg-warning">
+      Liste des Paiements
+    </div>
 
-@Component({
-  selector: 'app-paiement-list',
-  standalone: true,
- imports: [CommonModule, NavbarComponent],
-  templateUrl: './paiement-list.component.html'
-})
-export class PaiementListComponent implements OnInit {
+    <div class="card-body">
 
-  paiements: any[] = [];
+      <table class="table table-bordered">
 
-  constructor(private paiementService: PaiementService) {}
+        <thead class="table-dark">
 
-  ngOnInit(): void {
+          <tr>
 
-    this.paiementService.getPaiements()
-      .subscribe((data: any) => {
+            <th>ID</th>
 
-        this.paiements = data;
-      });
-  }
-}
+            <th>Date</th>
+
+            <th>Montant</th>
+
+            <th>Type</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let p of paiements">
+
+            <td>{{ p.id }}</td>
+
+            <td>{{ p.datePaiement }}</td>
+
+            <td>{{ p.montant }}</td>
+
+            <td>{{ p.typePaiement }}</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
