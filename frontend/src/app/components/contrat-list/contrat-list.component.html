@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+
+  <div class="card shadow">
+
+    <div class="card-header bg-success text-white">
+      Liste des Contrats
+    </div>
+
+    <div class="card-body">
+
+      <table class="table table-bordered">
+
+        <thead class="table-dark">
+
+          <tr>
+
+            <th>ID</th>
+
+            <th>Type</th>
+
+            <th>Statut</th>
+
+            <th>Montant</th>
+
+            <th>Durée</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let c of contrats">
+
+            <td>{{ c.id }}</td>
+
+            <td>{{ c.typeContrat }}</td>
+
+            <td>{{ c.statut }}</td>
+
+            <td>{{ c.montantCotisation }}</td>
+
+            <td>{{ c.duree }}</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
